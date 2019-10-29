@@ -11,8 +11,10 @@ class App {
   private mountRoutes (): void {
     const router = express.Router()
     router.get('/', (req, res) => {
-      res.json({
-        message: 'Hello World!'
+      res.sendFile('index.html',{root:__dirname},(err)=>{
+        if(err){
+          console.log(err)
+        }
       })
     })
     this.express.use('/', router)

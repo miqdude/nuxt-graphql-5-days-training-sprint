@@ -9,8 +9,8 @@ var App = /** @class */ (function () {
     App.prototype.mountRoutes = function () {
         var router = express.Router();
         router.get('/', function (req, res) {
-            res.json({
-                message: 'Hello World!'
+            res.sendFile('index.html', { root: __dirname }, function (err) {
+                console.log(err);
             });
         });
         this.express.use('/', router);
