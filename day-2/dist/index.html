@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <title>Learn VueJS</title>
+</head>
+<body>
+    <main id="app">
+        <div class="container-fluid">
+            <div class="row">
+               {{title}}
+            </div>
+            <div class="row">
+                <label for="addTodo">Add New Todo</label>
+                <input id="addTodo" type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
+            </div>
+            <div class="row" v-show="editing">
+                <label for="editTodo">Edit Todo</label>
+                <input id="editTodo" type="text" v-model="editingValue" @keyup.enter="doneEditing">
+            </div>
+            <div class="row">
+                <ul class="">
+                    <li v-for="todo in todos" class="">
+                        <!-- <span><input type="text" v-model="todo.title"></span> -->
+                        <span><label @dblclick="editTodo(todo)">{{todo.title}}</label></span>
+                        <button v-on:click="removeTodo(todo)">remove</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                title: "Todo App",
+                newTodo: '',
+                todos: [],
+                editing:false,
+                editingIndex:null,
+                editingValue:null,
+            },
+            methods:{
+                addTodo: function(){
+                    // console.log(this.newTodo)
+                    this.todos.push({title:this.newTodo})
+                    this.newTodo = ''
+                },
+                removeTodo:function(todo){
+                    const indexTodo = this.todos.indexOf(todo)
+                    this.todos.splice(indexTodo,1)
+                },
+                editTodo:function(todo){
+                    console.log("editing")
+                    this.editingIndex = this.todos.indexOf(todo)
+                    this.editing = true
+                },
+                doneEditing:function(){
+                    console.log("done editing")
+                    console.log(this.editingIndex)
+                    console.log(this.editingValue)
+
+                    this.todos[this.editingIndex].title = this.editingValue
+
+                    this.editingIndex=null
+                    this.editingValue=null
+                    this.editing = false
+                },
+            }
+        })
+    </script>
+</body>
+</html>
