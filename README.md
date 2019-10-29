@@ -69,12 +69,12 @@ Try to complete the tasks given per day. This training should take around 5 (fiv
 
 **References**
 
-- [ ] have followed [VueJS tutorial](https://www.tutorialspoint.com/vuejs/index.htm)
+- [x] have followed [VueJS tutorial](https://www.tutorialspoint.com/vuejs/index.htm)
 - [ ] have finished [tutorial to build a sample Agenda app](https://mdbootstrap.com/education/vue/agenda-app-1-overview/)
 
 **Task**
 
-- [ ] have made a simple to-do list app with following front-end functions :
+- [x] have made a simple to-do list app with following front-end functions :
 	- show list of to-do 
 	- add new to-do list
 	- edit new to-do list
