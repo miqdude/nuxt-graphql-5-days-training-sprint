@@ -90,11 +90,11 @@ Sample (not mandatory to look like [this](https://www.freecodecamp.org/news/lear
 **References**
 
 - [x] have followed [ExpressJS tutorial](https://www.tutorialspoint.com/expressjs/index.htm)
-- [ ] have finished [tutorial to build a API server using Express + PostgreSQL](https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/)
+- [x] have finished [tutorial to build a API server using Express + PostgreSQL](https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/)
 
 **Task**
 
-- [ ] change the database connection from directly to PostgreSQL into`Sequelize` as the ORM connection
+- [x] change the database connection from directly to PostgreSQL into`Sequelize` as the ORM connection
 
 Reference : [Setup PostgreSQL with Sequelize in Express](https://www.robinwieruch.de/postgres-express-setup-tutorial)
 
