@@ -109,13 +109,15 @@ Reference : [Setup PostgreSQL with Sequelize in Express](https://www.robinwieruc
 
 **Task**
 
-- [ ] create GraphQL mutation & queries for to-do list app on day 2
+- [x] create GraphQL mutation & queries for to-do list app on day 2
 
 Additional reference :
 
 - [graphql-concepts-i-wish-someone-explained-to-me-a-year-ago](https://medium.com/naresh-bhatia/graphql-concepts-i-wish-someone-explained-to-me-a-year-ago-514d5b3c0eab)
 - [a-beginners-guide-to-graphql](https://medium.freecodecamp.org/a-beginners-guide-to-graphql-60e43b0a41f5)
 
+Some good resource :
+- [Learn GraphQL In 40 Minutes](https://youtu.be/ZQL7tL2S0oQ)
 
 ### Day 5 - Universal Web App - NuxtJS
  
