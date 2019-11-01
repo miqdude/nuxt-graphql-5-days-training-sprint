@@ -1,38 +1,54 @@
 <template>
-  <div class="">
-    <header>
-      TodoWebApp
-    </header>
-    <section class="addList">
-      <input type="text">
-      <button @click="newTodo">+</button>
-    </section>
-    <section class="todoList">
-      <ul >
-        <li>
-          <label for="">Do nothing</label>
-          <button>-</button>
-        </li>
-        <li>
-          <label for="">Do somthing</label>
-          <button>-</button>
-        </li>
-      </ul>
-    </section>
+  <div class="todoList">
+    <AddTodo v-on:add-todo="addTodo"/>
+    <div class="list_container">
+      <Todo v-for="todo in todos" :key="id" :id="todo.id" :title="todo.title" />
+    </div>
   </div>
 </template>
 
 <script>
+import AddTodo from "../components/AddTodo"
+import Todo from "../components/Todo"
+
 export default {
+  components:{
+    AddTodo,
+    Todo
+  },
   data(){
     return{
-      books:{}
+      todos:[
+        {
+          id:1,
+          title:"do nothing"
+        },
+        {
+          id:2,
+          title:"do something"
+        }
+      ]
     }
   },
   methods:{
-    newTodo(){
-      console.log("new todo")
+    addTodo(todo){
+      this.todos.push({
+        id:2,
+        title:"OMG"
+      })
     }
   }
+  // ,created(){
+  //   return [
+  //     {
+  //       id:1,
+  //       title:"do nothing",
+  //     },
+  //     {
+  //       id:2,
+  //       title:"do something"
+  //     }
+  //   ]
+  // }
 }
 </script>
