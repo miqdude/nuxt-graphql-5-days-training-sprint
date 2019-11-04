@@ -10,7 +10,20 @@
 <script>
 import AddTodo from "../components/AddTodo"
 import Todo from "../components/Todo"
-import axios from 'axios'
+
+import fetch from 'node-fetch'
+import {createHttpLink} from 'apollo-link-http'
+import {InMemoryCache} from 'apollo-boost'
+import ApolloClient from 'apollo-client'
+
+import gql from 'graphql-tag'
+
+const endPointUrl = 'http://localhost:9000/graphql'
+const link = new createHttpLink({uri:endPointUrl,fetch:fetch})
+const apolloclient = new ApolloClient({
+  link: link,
+  cache: new InMemoryCache()
+})
 
 export default {
   components:{
@@ -31,20 +44,16 @@ export default {
     }
   }
   ,async created(){
-    try {
-      const res = await axios({
-        url: 'localhost:8080/graphql',
-        methods:'post',
-        data:{
-          query:`
-            query todos{
-              id,
-              title
-            }
-          `
+    const query = gql`
+      {
+        todos{
+          id,
+          title
         }
-      })
-      
+      }
+    `;
+    try {
+      const res = await apolloclient.query({query})
       console.log(res)
     } catch (error) {
       console.log(error)
