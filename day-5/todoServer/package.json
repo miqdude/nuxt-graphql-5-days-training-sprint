@@ -2,9 +2,9 @@
   "name": "todoServer",
   "version": "1.0.0",
   "description": "Backend server for TodoWebApp using Apollo, GraphQL, Sequelize, and PostgreSQL",
-  "main": "index.js",
+  "main": "",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -14,8 +14,10 @@
     "apollo-server-express": "^2.9.7",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
+    "graphql-tools": "^4.0.6",
     "pg": "^7.12.1",
     "sequelize": "^5.21.2"
   }

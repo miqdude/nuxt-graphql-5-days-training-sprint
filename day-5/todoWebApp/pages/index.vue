@@ -10,6 +10,7 @@
 <script>
 import AddTodo from "../components/AddTodo"
 import Todo from "../components/Todo"
+import axios from 'axios'
 
 export default {
   components:{
@@ -18,16 +19,7 @@ export default {
   },
   data(){
     return{
-      todos:[
-        {
-          id:1,
-          title:"do nothing"
-        },
-        {
-          id:2,
-          title:"do something"
-        }
-      ]
+      todos:[]
     }
   },
   methods:{
@@ -38,17 +30,25 @@ export default {
       })
     }
   }
-  // ,created(){
-  //   return [
-  //     {
-  //       id:1,
-  //       title:"do nothing",
-  //     },
-  //     {
-  //       id:2,
-  //       title:"do something"
-  //     }
-  //   ]
-  // }
+  ,async created(){
+    try {
+      const res = await axios({
+        url: 'localhost:8080/graphql',
+        methods:'post',
+        data:{
+          query:`
+            query todos{
+              id,
+              title
+            }
+          `
+        }
+      })
+      
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
 </script>
