@@ -8,8 +8,7 @@ const app = express()
 
 const port = 9000
 
-app.use(cors)
-
+app.use(cors())
 app.use('/graphql',expressGraphql({
     schema:schema,
     graphiql:true

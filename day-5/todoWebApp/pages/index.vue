@@ -2,7 +2,8 @@
   <div class="todoList">
     <AddTodo v-on:add-todo="addTodo"/>
     <div class="list_container">
-      <Todo v-for="todo in todos" :key="id" :id="todo.id" :title="todo.title" />
+      <Todo v-for="todo in todos" :key="todo.id" :id="todo.id" :title="todo.title" 
+      v-on:delete-todo="deleteTodo" :editing="todo.editing" v-on:done-editing-todo="doneEditing"/>
     </div>
   </div>
 </template>
@@ -36,11 +37,45 @@ export default {
     }
   },
   methods:{
-    addTodo(todo){
-      this.todos.push({
-        id:2,
-        title:"OMG"
-      })
+    async addTodo(todo){
+      const query = gql`
+        mutation{
+          addTodo(title:"${todo}"){
+            id,
+            title
+          }
+        }
+      `;
+      try {
+        const res = await apolloclient.mutate({mutation:query})
+        this.todos.push(res.data.addTodo)
+        console.log(res.data.addTodo)
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    async deleteTodo(id){
+      // console.log("todo id"+id)
+      const todoEl = this.todos.find(t => t.id === id)
+      const todoindex = this.todos.indexOf(todoEl)
+      // console.log(todoindex)
+      const query = gql`
+        mutation{
+          deleteTodo(id:${id})
+        }
+      `;
+      try {
+        const res = await apolloclient.mutate({mutation:query})
+        console.log(res)
+        if(res.data.deleteTodo === 1){
+          this.todos.splice(todoindex,1)
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    doneEditing(id){
+      console.log("editing "+id)
     }
   }
   ,async created(){
@@ -54,7 +89,13 @@ export default {
     `;
     try {
       const res = await apolloclient.query({query})
-      console.log(res)
+      let tmp = res.data.todos
+      
+      tmp.forEach(element => {
+        element.editing = false
+      });
+      
+      this.todos = tmp
     } catch (error) {
       console.log(error)
     }

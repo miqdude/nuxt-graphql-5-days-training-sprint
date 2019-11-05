@@ -17,7 +17,7 @@ export default {
     },
     methods:{
         addTodo(){
-            console.log(this.todo)
+            // console.log(this.todo)
             this.$emit("add-todo",this.todo)
             this.todo=""
         }
