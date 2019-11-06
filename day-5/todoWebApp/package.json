@@ -1,0 +1,22 @@
+{
+  "name": "todoWebApp",
+  "version": "1.0.0",
+  "description": "TodoWebApp using NuxtJS Graphql and Sequelize",
+  "author": "miqdude",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "apollo-boost": "^0.4.4",
+    "apollo-link-http": "^1.5.16",
+    "cors": "^2.8.5",
+    "graphql": "^14.5.8",
+    "graphql-tag": "^2.10.1",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {}
+}
