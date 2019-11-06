@@ -103,13 +103,13 @@ Reference : [Setup PostgreSQL with Sequelize in Express](https://www.robinwieruc
 
 **References**
 
-- [ ] have followed the [GraphQL tutorial](https://www.tutorialspoint.com/graphql/index.htm)
-- [ ] have followed [GraphQL and Express sample app tutorial](https://medium.com/codingthesmartway-com-blog/creating-a-graphql-server-with-node-js-and-express-f6dddc5320e1)
+- [x] have followed the [GraphQL tutorial](https://www.tutorialspoint.com/graphql/index.htm)
+- [x] have followed [GraphQL and Express sample app tutorial](https://medium.com/codingthesmartway-com-blog/creating-a-graphql-server-with-node-js-and-express-f6dddc5320e1)
 - [ ] have followed [GraphQL w/ Apollo Server tutorial](https://www.robinwieruch.de/graphql-apollo-server-tutorial)
 
 **Task**
 
-- [ ] create GraphQL mutation & queries for to-do list app on day 2
+- [x] create GraphQL mutation & queries for to-do list app on day 2
 
 Additional reference :
 
@@ -124,11 +124,13 @@ Additional reference :
 - [ ] have read [NuxtJS guide](https://nuxtjs.org/guide/)
 - [ ] have followed [NuxtJS sample app tutorial]()
 - [ ] have followed [NuxtJS + GraphQL + Apollo tutorial](https://www.djamware.com/post/5cdc0ba280aca754f7a9d1f4/node-express-postgresql-vue-2-and-graphql-crud-web-app)
- 
+
+**Good tutorial**
+[NuxtJS Crash Course](https://youtu.be/ltzlhAxJr74) 
  
 **Task**
 
-- [ ] create the previous simple to-do list app using :
+- [x] create the previous simple to-do list app using :
 	- NuxtJS
 	- GraphQL
 	- PostgreSQL
