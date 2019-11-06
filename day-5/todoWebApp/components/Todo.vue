@@ -10,17 +10,17 @@
 <script>
 export default {
     name:"Todo",
-    props:['id','title','editing'],
+    props:['id','title','editing','newVal'],
     methods:{
         deleteTodo(){
             // console.log("todo id "+this.id)
             this.$emit('delete-todo',this.id)
         },
         editTodo(){
-            this.editing = true
+            this.$emit('editing-todo',this.id)
         },
         doneEditing(){
-            this.$emit('done-edit-todo',this.id)
+            this.$emit('done-editing-todo',this.id)
         }
     }
 }

@@ -3,7 +3,8 @@
     <AddTodo v-on:add-todo="addTodo"/>
     <div class="list_container">
       <Todo v-for="todo in todos" :key="todo.id" :id="todo.id" :title="todo.title" 
-      v-on:delete-todo="deleteTodo" :editing="todo.editing" v-on:done-editing-todo="doneEditing"/>
+      v-on:delete-todo="deleteTodo" :editing="todo.editing" v-on:done-editing-todo="doneEditing"
+      v-on:editing-todo="editingTodo" v-model="temp"/>
     </div>
   </div>
 </template>
@@ -33,7 +34,8 @@ export default {
   },
   data(){
     return{
-      todos:[]
+      todos:[],
+      temp:null
     }
   },
   methods:{
@@ -74,8 +76,13 @@ export default {
         console.log(error)
       }
     },
-    doneEditing(id){
+    editingTodo(id){
       console.log("editing "+id)
+      this.todos.find(t=>t.id === id).editing = true
+    },
+    doneEditing(id, newValue){
+      console.log("done editing "+id)
+      console.log(this.temp)
     }
   }
   ,async created(){
@@ -93,6 +100,7 @@ export default {
       
       tmp.forEach(element => {
         element.editing = false
+        element.newVal = null
       });
       
       this.todos = tmp

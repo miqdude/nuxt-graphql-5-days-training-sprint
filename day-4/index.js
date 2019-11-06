@@ -164,6 +164,6 @@ const app = express()
 
 app.use('/graphiql',expressGraphiql({
     schema:schema,
-    graphiql:true
+    graphiql:false
 }))
 app.listen(8080,()=>{console.log("Server running on 8080")})
