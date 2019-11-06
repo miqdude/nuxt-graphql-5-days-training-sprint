@@ -4,7 +4,7 @@
   "description": "Backend server for TodoWebApp using Apollo, GraphQL, Sequelize, and PostgreSQL",
   "main": "",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",

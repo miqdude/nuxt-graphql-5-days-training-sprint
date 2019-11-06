@@ -60,6 +60,22 @@ const RootMutation = new GraphQLObjectType({
                 console.log(res)
                 return res
             }
+        },
+        updateTodo:{
+            type: GraphQLInt,
+            description:"Update todo with id",
+            args:{
+                id:{type:GraphQLNonNull(GraphQLInt)},
+                title:{type:GraphQLList(GraphQLString)}
+            },
+            resolve:async(parent,args)=>{
+                console.log(args.id + " " + args.title)
+                const res = await db.Todos.update(
+                    {title: args.title.toString()},
+                    {where: {id:args.id}}
+                )
+                return res[0]
+            }
         }
     })
 })
